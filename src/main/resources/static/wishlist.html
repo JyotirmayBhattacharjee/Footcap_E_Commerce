@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Wishlist</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #111827;
+            color: #fff;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #f43f5e;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+
+        #wishlistItems {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .wishlist-item {
+            background: #1f2937;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .35);
+
+            transition: .3s;
+        }
+
+        .wishlist-item:hover {
+            transform: translateY(-4px);
+        }
+
+        .product-info {
+            flex: 1;
+        }
+
+        .product-info h3 {
+            font-size: 22px;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .product-info p {
+            color: #fbbf24;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .cart-btn {
+            background: #10b981;
+            color: #fff;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .cart-btn:hover {
+            background: #059669;
+        }
+
+        .delete-btn {
+            background: #ef4444;
+            color: #fff;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .delete-btn:hover {
+            background: #dc2626;
+        }
+
+        .continue-btn {
+            display: block;
+            width: 260px;
+            margin: 35px auto 0;
+            text-align: center;
+
+            background: #f43f5e;
+            color: #fff;
+
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 10px;
+
+            font-size: 17px;
+            font-weight: bold;
+
+            transition: .3s;
+        }
+
+        .continue-btn:hover {
+            background: #e11d48;
+        }
+
+        /* ---------- Tablet ---------- */
+
+        @media (max-width:768px) {
+
+            body {
+                padding: 15px;
+                align-items: flex-start;
+            }
+
+            .container {
+                width: 100%;
+                max-width: 100%;
+                padding: 24px;
+                border-radius: 12px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            button {
+                width: 100%;
+            }
+
+        }
+
+        /* ---------- Mobile ---------- */
+
+        @media(max-width:480px) {
+
+            body {
+                padding: 12px;
+            }
+
+            h1 {
+                font-size: 26px;
+                margin-bottom: 20px;
+            }
+
+            .wishlist-item {
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .product-info h3 {
+                font-size: 18px;
+            }
+
+            .product-info p {
+                font-size: 16px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .cart-btn,
+            .delete-btn {
+                width: 100%;
+                margin: 0;
+                padding: 13px;
+                font-size: 15px;
+            }
+
+            .continue-btn {
+                width: 100%;
+                max-width: none;
+                padding: 14px;
+                font-size: 16px;
+            }
+
+        }
+
+        @media (max-width:480px) {
+
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                width: 100%;
+                padding: 18px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            input,
+            textarea {
+                font-size: 16px;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>My Wishlist</h1>
+
+    <div id="wishlistItems"></div>
+
+    <a href="index.html" class="continue-btn">
+        Continue Shopping
+    </a>
+
+    <script src="js/script.js"></script>
+    <script src="./assets/js/wishlist.js"></script>
+
+</body>
+
+</html>

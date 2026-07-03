@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Sign Up</title>
+
+    <style>
+        /* Base Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #bbdefb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Container Card */
+        .auth-container {
+            background-color: #cbf3f0;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-color: crimson;
+        }
+
+        .auth-container h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+
+        .auth-container p {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 2rem;
+        }
+
+        /* Google Button */
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #374151;
+            cursor: pointer;
+            transition: background-color 0.2s, box-shadow 0.2s;
+            margin-bottom: 1.5rem;
+        }
+
+        .google-btn:hover {
+            background-color: #f9fafb;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .google-btn svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        /* Divider */
+        .divider {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .divider span {
+            padding: 0 10px;
+            color: #9ca3af;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+
+        /* Standard Email Form */
+        .form-group {
+            text-align: left;
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            color: #4b5563;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #111827;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background-color: #374151;
+        }
+
+        .footer-text {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+
+        .footer-text a {
+            color: #3b82f6;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .footer-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* NEW: Class to easily hide elements */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="auth-container">
+
+        <!-- Dynamic Header (Changes based on mode) -->
+        <h1 id="header-title">Welcome Back</h1>
+        <p id="header-subtitle">Log in to continue</p>
+
+        <!-- Google Sign In Button - NOW CONNECTED TO SPRING BOOT -->
+        <a href="/oauth2/authorization/google" style="text-decoration: none;">
+            <button class="google-btn" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+                    <path fill="#FFC107"
+                        d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" />
+                    <path fill="#FF3D00"
+                        d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z" />
+                    <path fill="#4CAF50"
+                        d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z" />
+                    <path fill="#1976D2"
+                        d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z" />
+                </svg>
+                Continue with Google
+            </button>
+        </a>
+
+        <div class="divider">
+            <span>or</span>
+        </div>
+
+        <!-- LOGIN FORM (Visible by default) -->
+        <!-- <form id="loginForm">
+            <div class="form-group">
+                <label for="login-email">Email address</label>
+                <input type="email" id="login-email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="login-password">Password</label>
+                <input type="password" id="login-password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="submit-btn">Login</button>
+        </form> -->
+
+        <!-- SIGN UP FORM (Hidden by default using the .hidden class) -->
+        <form id="signupForm" class="hidden">
+            <div class="form-group">
+                <label for="signup-name">Full Name</label>
+                <input type="text" id="signup-name" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-email">Email address</label>
+                <input type="email" id="signup-email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="signup-password">Create Password</label>
+                <input type="password" id="signup-password" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="submit-btn">Create Account</button>
+        </form>
+
+        <!-- Dynamic Footer Toggle -->
+        <p class="footer-text" id="toggle-text">
+            Don't have an account? <a onclick="toggleAuthMode()">Sign up</a>
+        </p>
+
+    </div>
+
+    <script>
+        // --- TOGGLE BETWEEN LOGIN AND SIGN UP ---
+        // Variables to target our HTML elements
+        const loginForm = document.getElementById('loginForm');
+        const signupForm = document.getElementById('signupForm');
+        const headerTitle = document.getElementById('header-title');
+        const headerSubtitle = document.getElementById('header-subtitle');
+        const toggleText = document.getElementById('toggle-text');
+
+        // This function runs when the user clicks the link at the bottom
+        function toggleAuthMode() {
+            // If the login form is currently NOT hidden, switch to Sign Up
+            if (!loginForm.classList.contains('hidden')) {
+                loginForm.classList.add('hidden');
+                signupForm.classList.remove('hidden');
+
+                headerTitle.innerText = "Create an Account";
+                headerSubtitle.innerText = "Sign up to get started";
+                toggleText.innerHTML = `Already have an account? <a onclick="toggleAuthMode()">Log in</a>`;
+            }
+            // Otherwise, switch back to Login
+            else {
+                signupForm.classList.add('hidden');
+                loginForm.classList.remove('hidden');
+
+                headerTitle.innerText = "Welcome Back";
+                headerSubtitle.innerText = "Log in to continue";
+                toggleText.innerHTML = `Don't have an account? <a onclick="toggleAuthMode()">Sign up</a>`;
+            }
+        }
+
+        // --- EMAIL FORM SUBMISSIONS ---
+        // (Note: To make these actually work with Spring Boot later, you will need to map these to POST requests)
+
+        // Login Submit
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const email = document.getElementById('login-email').value;
+            alert("This is just dummy text right now. Real email login requires a Spring Security POST request.");
+        });
+
+        // Sign Up Submit
+        signupForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const name = document.getElementById('signup-name').value;
+            const email = document.getElementById('signup-email').value;
+            alert("This is just dummy text right now. Real sign up requires a Spring Boot database connection.");
+        });
+    </script>
+
+</body>
+
+</html>

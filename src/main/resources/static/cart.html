@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Cart</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            margin: 0;
+            padding: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #cartItems {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .cart-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-info h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .product-info p {
+            margin-top: 8px;
+            color: #666;
+            font-size: 18px;
+        }
+
+        .delete-btn {
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .delete-btn:hover {
+            background: #e60000;
+        }
+
+        .total-box {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: right;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .continue-btn {
+            display: block;
+            width: 250px;
+            margin: 30px auto;
+            text-align: center;
+            background: black;
+            color: white;
+            padding: 15px;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .continue-btn:hover {
+            background: #333;
+        }
+
+        @media (max-width: 768px) {
+
+            .cart-item,
+            .wishlist-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .delete-btn,
+            .cart-btn {
+                width: 100%;
+                margin-top: 8px;
+            }
+
+            .continue-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .total-box {
+                text-align: center;
+            }
+
+            body {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .product-info h3 {
+                font-size: 16px;
+            }
+
+            .product-info p {
+                font-size: 14px;
+            }
+
+            .cart-item,
+            .wishlist-item {
+                padding: 15px;
+            }
+
+            .delete-btn,
+            .cart-btn {
+                font-size: 14px;
+                padding: 12px;
+            }
+        }
+
+        .buy-btn {
+
+            display: block;
+            width: 250px;
+
+            margin: 20px auto;
+
+            background: #16a34a;
+
+            color: white;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            padding: 15px;
+
+            border-radius: 10px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            transition: .3s;
+        }
+
+        .buy-btn:hover {
+
+            background: #15803d;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My Cart</h1>
+
+    <hr>
+
+    <div id="cartItems"></div>
+
+    <br>
+
+    <!-- <a href="index.html">
+        Continue Shopping
+    </a> -->
+
+    <a href="checkout.html" class="buy-btn">
+        Buy Now
+    </a>
+
+    <script src="assets/js/cart.js"></script>
+
+</body>
+
+</html>
