@@ -80,19 +80,7 @@ Footcap
 
 ---
 
-## ⚙️ Installation
 
-### Clone Repository
-
-```bash
-git clone https://github.com/JyotirmayBhattacharjee/Footcap_E_Commerce.git
-```
-
-```bash
-cd Footcap_E_Commerce
-```
-
----
 
 ### Configure Environment Variables
 
@@ -150,9 +138,8 @@ https://footcap-e-commerce.onrender.com/login/oauth2/code/google
 
 ---
 
-## 📸 Screenshots
+## 📸 Page
 
-> Add screenshots of:
 
 - Home Page
 - Google Login
