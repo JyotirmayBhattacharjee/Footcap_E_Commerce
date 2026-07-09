@@ -9,6 +9,9 @@ The application provides a complete online shopping experience including Google 
 ## 🚀 Live Demo
 
 🌐 https://footcap-e-commerce.onrender.com
+⚠️ This application is hosted on Render's free tier.
+
+The first visit after inactivity may take 30–60 seconds while the server wakes up.
 
 ---
 
